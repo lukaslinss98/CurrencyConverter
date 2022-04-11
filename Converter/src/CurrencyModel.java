@@ -23,8 +23,12 @@ public class CurrencyModel {
         return currency;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public void setCurrency(CurrencyConstant currency) {
+        this.currency = currency;
     }
 
     @Override

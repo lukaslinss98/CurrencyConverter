@@ -15,7 +15,7 @@ public class ConvertionRateManager {
 
     public static double getConversionRate(CurrencyConstant currencyConstant, CurrencyConstant newCurrency) {
 
-        String urlStr = API_URL + currencyConstant.getCountryCode(); // https://v6.exchangerate-api.com/v6/a74e1cc9fce0e6ee4ce4724d/latest/YOUR_CURRENCY_CODE
+        String urlStr = API_URL + currencyConstant; // https://v6.exchangerate-api.com/v6/a74e1cc9fce0e6ee4ce4724d/latest/YOUR_CURRENCY_CODE
         double result = 0;
         try{
             // making the request
@@ -31,7 +31,7 @@ public class ConvertionRateManager {
 
             String conversionRate = jsonObject.get("conversion_rates")
                                               .getAsJsonObject()
-                                              .get(newCurrency.getCountryCode())
+                                              .get(newCurrency.toString())
                                               .getAsString();
 
             result = Double.parseDouble(conversionRate);

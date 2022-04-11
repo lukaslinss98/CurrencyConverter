@@ -1,7 +1,7 @@
 public enum CurrencyConstant {
 
 
-    EURO("EUR"), DOLLAR("USD"), FRANC("CHF"), AUSTRALIEN_DOLLAR("AUD");
+    EUR("Euro"), USD("Dollar"), CHF("Franc"), AUD("Australian Dollar");
 
     private final String countryCode;
 
@@ -9,8 +9,14 @@ public enum CurrencyConstant {
         this.countryCode = countryCode;
     }
 
+    public static CurrencyConstant[] getAll(){
+
+        return  values();
+    }
+
     public String getCountryCode(){
         return countryCode;
     }
+
 
 }
