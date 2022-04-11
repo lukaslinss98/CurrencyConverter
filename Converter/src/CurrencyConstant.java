@@ -1,12 +1,18 @@
 public enum CurrencyConstant {
 
+    /**
+     * Currency code (ISO 4217)
+     */
+    AUD("Australian Dollar"), ALL("Lek"), BRL("Real"),
+    CHF("Franc"), CNY("Yuan"),DKK("Kroner"),
+    DZD("Algerian Dinar"), EUR("Euro"), GBP("British pound sterlin"),
+    HRK("Kuna"), JPY("Yen"), KRW("Won"), PLN("Zloty"),
+    RUB("Rubel"), SEK("Krona"),USD("US Dollar"), VND("Dong");
 
-    EUR("Euro"), USD("Dollar"), CHF("Franc"), AUD("Australian Dollar");
+    private final String currencyName;
 
-    private final String countryCode;
-
-    private CurrencyConstant(String countryCode){
-        this.countryCode = countryCode;
+    private CurrencyConstant(String currencyName){
+        this.currencyName = currencyName;
     }
 
     public static CurrencyConstant[] getAll(){
@@ -14,8 +20,8 @@ public enum CurrencyConstant {
         return  values();
     }
 
-    public String getCountryCode(){
-        return countryCode;
+    public String getCurrencyName(){
+        return currencyName;
     }
 
 
