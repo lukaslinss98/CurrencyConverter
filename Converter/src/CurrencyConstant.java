@@ -1,7 +1,11 @@
+import java.util.Arrays;
+import java.util.stream.*;
+import java.util.stream.Collectors;
+
 public enum CurrencyConstant {
 
     /**
-     * Currency code (ISO 4217)
+     * Currency codes (ISO 4217)
      */
     AED("United Arab Emirates Dirham"), AFN("Afghanistan Afghani"), ALL("Albania Lek"),
     AMD("Armenia Dram"), ANG("Netherlands Antilles Guilder"), AOA("Angola Kwanza"),
@@ -62,12 +66,35 @@ public enum CurrencyConstant {
 
     private final String currencyName;
 
-    private CurrencyConstant(String currencyName){
+    CurrencyConstant(String currencyName){
         this.currencyName = currencyName;
     }
 
     public static CurrencyConstant[] getAll(){
         return  values();
+    }
+
+    public static String[] getCurrencyNames(){
+        CurrencyConstant[] constantsArray = values();
+        String[] constantStringArray = new String[constantsArray.length];
+
+        for(int i = 0; i < constantStringArray.length; i++){
+            constantStringArray[i] = constantsArray[i].currencyName;
+        }
+        return constantStringArray;
+    }
+
+    /**
+     *
+     * @param 'String name of the currencyConstant
+     * @return the CurrencyConstant for the given String
+     */
+    public static CurrencyConstant valueOfCurrencyName(String name){
+        for(CurrencyConstant constant : values()){
+            if(constant.currencyName.equals(name))
+                return constant;
+        }
+        return null;
     }
 
     public String getCurrencyName(){

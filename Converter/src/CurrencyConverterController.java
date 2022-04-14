@@ -3,21 +3,26 @@ import java.awt.event.ActionListener;
 
 public class CurrencyConverterController {
 
-    private CurrencyModel model;
-    private CurrencyConverterView view;
+    private CurrencyModel currencyModel;
+    private CurrencyConverterView currencyConverterView;
 
-    public CurrencyConverterController(CurrencyModel model, CurrencyConverterView view){
-        this.model = model;
-        this.view = view;
+    public CurrencyConverterController(CurrencyModel currencyModel, CurrencyConverterView currencyConverterView){
+        this.currencyModel = currencyModel;
+        this.currencyConverterView = currencyConverterView;
 
-        view.addActionListener(view.getConvertButton(), new ActionListener() {
+        currencyConverterView.addActionListener(currencyConverterView.getConvertButton(), new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.setCurrency(view.getBaseCurrency());
-                model.setAmount(view.getBaseAmount());
 
-                CurrencyModel convertedCurrency = model.convertCurrency(view.getCovertCurrency());
-                view.setConvertNumberField("" + convertedCurrency.getAmount());
+                String baseCurrency = currencyConverterView.getBaseCurrency();
+                currencyModel.setCurrency(CurrencyConstant.valueOfCurrencyName(baseCurrency));
+                currencyModel.setAmount(currencyConverterView.getBaseAmount());
+
+                String converterCurrency = currencyConverterView.getCovertCurrency();
+                CurrencyModel convertedCurrencyModel =
+                        currencyModel.convertCurrency(CurrencyConstant.valueOfCurrencyName(converterCurrency));
+                
+                currencyConverterView.setConvertNumberField("" + convertedCurrencyModel.getAmount());
             }
         });
     }

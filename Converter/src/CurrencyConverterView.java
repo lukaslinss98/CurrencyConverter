@@ -7,26 +7,24 @@ public class CurrencyConverterView extends JFrame {
 
     private final JPanel panel = new JPanel();
     private JButton convertButton = new JButton();
-    private JComboBox<CurrencyConstant> baseCurrency = new JComboBox<>(CurrencyConstant.getAll());
-    private JComboBox<CurrencyConstant> convertCurrency = new JComboBox<>(CurrencyConstant.getAll());
+    private JComboBox<String> baseCurrency = new JComboBox<>(CurrencyConstant.getCurrencyNames());
+    private JComboBox<String> convertCurrency = new JComboBox<>(CurrencyConstant.getCurrencyNames());
     private JTextField baseNumberField = new JTextField();
     private JTextField convertNumberField = new JTextField();
 
 
     public CurrencyConverterView() {
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        panel.setLayout(new GridLayout(2, 3));
+        panel.setLayout(new GridLayout(3, 2));
 
         panel.add(baseCurrency);
         panel.add(baseNumberField);
 
-        convertButton.setText("Convert");
-        panel.add(convertButton);
-
         panel.add(convertCurrency);
         panel.add(convertNumberField);
 
-
+        convertButton.setText("Convert");
+        panel.add(convertButton);
 
 
         this.add(panel);
@@ -41,12 +39,12 @@ public class CurrencyConverterView extends JFrame {
         button.addActionListener(action);
     }
 
-    public CurrencyConstant getBaseCurrency(){
-        return (CurrencyConstant) baseCurrency.getSelectedItem();
+    public String getBaseCurrency(){
+        return (String) baseCurrency.getSelectedItem();
     }
 
-    public CurrencyConstant getCovertCurrency(){
-        return (CurrencyConstant) convertCurrency.getSelectedItem();
+    public String getCovertCurrency(){
+        return (String) convertCurrency.getSelectedItem();
     }
 
     public double getBaseAmount(){
