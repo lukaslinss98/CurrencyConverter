@@ -41,7 +41,7 @@ public class CurrencyModel {
 
     public CurrencyModel convertCurrency(CurrencyConstant newCurrency) {
 
-        double conversionRate = ConvertionRateManager.getConversionRate(
+        double conversionRate = ConversionRateManager.getConversionRate(
                 this.currency, newCurrency
         );
 

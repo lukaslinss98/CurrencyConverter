@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-public class ConvertionRateManager {
+public class ConversionRateManager {
 
     //API endpoint used to get latest conversion rates
     private static final String API_URL = "https://v6.exchangerate-api.com/v6/a74e1cc9fce0e6ee4ce4724d/latest/";

@@ -9,15 +9,17 @@ public class CurrencyConverterView extends JFrame {
     private JButton convertButton = new JButton();
     private JComboBox<String> baseCurrency = new JComboBox<>(CurrencyConstant.getCurrencyNames());
     private JComboBox<String> convertCurrency = new JComboBox<>(CurrencyConstant.getCurrencyNames());
-    private JTextField baseNumberField = new JTextField();
-    private JTextField convertNumberField = new JTextField();
+    private JTextField baseNumberField = new JTextField(10);
+    private JTextField convertNumberField = new JTextField(10);
 
 
     public CurrencyConverterView() {
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+
         panel.setLayout(new GridLayout(3, 2));
 
         panel.add(baseCurrency);
+        baseNumberField.setSize(5,10);
         panel.add(baseNumberField);
 
         panel.add(convertCurrency);
@@ -25,7 +27,6 @@ public class CurrencyConverterView extends JFrame {
 
         convertButton.setText("Convert");
         panel.add(convertButton);
-
 
         this.add(panel);
 
